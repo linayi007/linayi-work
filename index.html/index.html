@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>LINA YI — An Immersive Sonic Performance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Ticket gate ===== -->
+  <div class="gate" id="gate">
+    <div class="gate__card">
+      <span class="gate__label">Tonight Only</span>
+      <h2 class="gate__title">LINA YI</h2>
+      <p class="gate__sub">An Immersive Sonic Performance</p>
+      <div class="gate__ticket">
+        <div class="gate__stub gate__stub--left">ADMIT<br/>ONE</div>
+        <button class="gate__tear" id="gateEnter">Tear to Enter</button>
+        <div class="gate__stub gate__stub--right">Nº&nbsp;001</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Immersive stage (audio-reactive background) ===== -->
+  <canvas id="stage" class="stage"></canvas>
+  <div class="stage__vignette"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#top">LY<span>.</span></a>
+    <nav class="nav__links">
+      <a href="#works">Programme</a>
+      <a href="#about">Artist</a>
+      <a href="#experience">Journey</a>
+      <a href="#contact">Finale</a>
+    </nav>
+  </header>
+
+  <!-- ===== Act dots ===== -->
+  <nav class="acts" id="acts" aria-label="Acts"></nav>
+
+  <main class="content">
+
+    <!-- ===== Overture ===== -->
+    <section class="scene scene--hero" id="top" data-act="Overture">
+      <div class="scene__inner scene__inner--center">
+        <p class="eyebrow reveal">An Immersive Sonic Performance</p>
+        <h1 class="hero__title kinetic">LINA YI</h1>
+        <p class="hero__tagline reveal">
+          Film &amp; TV composer since 2015 — now composing the future
+          with AI-generated sound.
+        </p>
+        <div class="hero__actions reveal">
+          <button class="btn btn--solid btn--lg" id="heroPlayBtn">▶&nbsp; Begin the Performance</button>
+          <a href="#works" class="btn btn--ghost btn--lg">View Programme</a>
+        </div>
+      </div>
+      <div class="hero__scrollhint">Act I awaits — scroll</div>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Sound · Light · Space · Live ·&nbsp;</span><span>Sound · Light · Space · Live ·&nbsp;</span><span>Sound · Light · Space · Live ·&nbsp;</span><span>Sound · Light · Space · Live ·&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ===== Act I — The Programme ===== -->
+    <section class="scene" id="works" data-act="Act I">
+      <div class="scene__inner">
+        <p class="act-label reveal">Act I</p>
+        <div class="section-head reveal">
+          <h2 class="kinetic">The Programme</h2>
+          <p class="section-sub">Six pieces, performed live in your browser. Tap any number to listen.</p>
+        </div>
+
+        <div class="filters reveal" id="filters">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="ambient">Ambient</button>
+          <button class="chip" data-filter="electronic">Electronic</button>
+          <button class="chip" data-filter="piano">Piano</button>
+          <button class="chip" data-filter="soundtrack">Soundtrack</button>
+        </div>
+
+        <div class="piano reveal">
+          <p class="piano__hint">Try the keys — compose your own intro&ensp;·&ensp;A–K on your keyboard</p>
+          <div class="piano__keys" id="pianoKeys"></div>
+        </div>
+
+        <ul class="track-list" id="trackList"><!-- rendered by JS --></ul>
+      </div>
+    </section>
+
+    <!-- ===== Act II — The Artist ===== -->
+    <section class="scene" id="about" data-act="Act II">
+      <div class="scene__inner">
+        <p class="act-label reveal">Act II</p>
+        <div class="section-head reveal">
+          <h2 class="kinetic">The Artist</h2>
+        </div>
+        <div class="about__grid about__grid--stage reveal">
+          <figure class="performer">
+            <video
+              class="performer__video"
+              id="performerVideo"
+              src="assets/lina-singing.mp4"
+              poster="assets/lina-portrait.jpeg"
+              muted
+              loop
+              playsinline
+              aria-label="Lina Yi singing on stage"></video>
+            <figcaption class="performer__caption">Live — from the stage to your screen</figcaption>
+          </figure>
+          <div>
+            <p class="about__lead">
+              Lina Yi is a composer and educator trained in composition at
+              Minzu University of China. She has scored film and television
+              for over a decade, and now works at the intersection of music,
+              AI and education — building generative music systems and
+              perception-first learning models for the next generation of creators.
+            </p>
+            <ul class="about__facts">
+              <li><strong>Education</strong><span>BA Composition, Minzu University of China</span></li>
+              <li><strong>Focus</strong><span>Film Score · AIGC Music · Education</span></li>
+              <li><strong>Based in</strong><span>Shanghai · Beijing · Hong Kong, China</span></li>
+              <li><strong>Toolkit</strong><span>Music Production · Modular Composition Systems</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Act III — The Journey ===== -->
+    <section class="scene" id="experience" data-act="Act III">
+      <div class="scene__inner">
+        <p class="act-label reveal">Act III</p>
+        <div class="section-head reveal">
+          <h2 class="kinetic">The Journey</h2>
+          <p class="section-sub">Composition, research and music education.</p>
+        </div>
+
+        <ul class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2015 — Now</span>
+            <div class="timeline__body">
+              <h3>Composer &amp; Music Artist</h3>
+              <p class="timeline__org">Yuanqi Hero Film &amp; TV Culture Communication · Beijing</p>
+              <p class="timeline__desc">Original scores and thematic compositions for film and television; sound design crafted for narrative impact.</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2024 — Now</span>
+            <div class="timeline__body">
+              <h3>Distinguished Lecturer</h3>
+              <p class="timeline__org">Future Creative Laboratory · Shanghai</p>
+              <p class="timeline__desc">Applied research on AIGC and spatial intelligence — leading the music generation module and context-sensitive sound design.</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2023 — Now</span>
+            <div class="timeline__body">
+              <h3>Founder &amp; General Manager</h3>
+              <p class="timeline__org">Yiyi Cultural Media Co., Ltd. · Hainan</p>
+              <p class="timeline__desc">Strategic leadership; directing artistic and cultural projects from concept to implementation.</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2023 — Now</span>
+            <div class="timeline__body">
+              <h3>Composition Instructor / Arrangement Lecturer</h3>
+              <p class="timeline__org">Rococo Art Center · Hainan &nbsp;|&nbsp; Backstage Circle: New Voices · Beijing</p>
+              <p class="timeline__desc">Curriculum design and mentorship in composition, arrangement and orchestration.</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2022 — Now</span>
+            <div class="timeline__body">
+              <h3>Project Lead — Wasai Club</h3>
+              <p class="timeline__org">Hainan</p>
+              <p class="timeline__desc">A perception-first music enlightenment model for children aged 3–8, built on modular composition tools.</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2023 — Now</span>
+            <div class="timeline__body">
+              <h3>Research Assistant — AI Children's Music Composition System</h3>
+              <p class="timeline__org">Backstage Circle Classroom · Beijing</p>
+              <p class="timeline__desc">A four-phase AI-powered literacy framework for ages 7–12: deconstruction, recombination, expression, interpretation.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Act IV — The Honors ===== -->
+    <section class="scene" id="honors" data-act="Act IV">
+      <div class="scene__inner">
+        <p class="act-label reveal">Act IV</p>
+        <div class="section-head reveal">
+          <h2 class="kinetic">The Honors</h2>
+          <p class="section-sub">Recognition across performance, competition and teaching.</p>
+        </div>
+        <ul class="honors__list honors__list--stage">
+          <li class="reveal"><em>2025</em>Gold Medal Instructor — Hainan International Youth Music Festival</li>
+          <li class="reveal"><em>2024</em>Outstanding Instructor — "New Voice" Youth Innovative Music Showcase</li>
+          <li class="reveal"><em>2024</em>Elite Teacher — 6th Magnolia International Music Festival Piano Competition</li>
+          <li class="reveal"><em>2023</em>Outstanding Instructor — Central Conservatory of Music National Graded Examinations Gala</li>
+          <li class="reveal"><em>2011</em>Top 20 — 8th China Music Golden Bell Award Pop Music Competition, Beijing</li>
+          <li class="reveal"><em>2011</em>Top 8 (National) — Yamaha Asian Beat Band Competition, China Finals</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Finale — Contact ===== -->
+    <section class="scene scene--finale" id="contact" data-act="Finale">
+      <div class="finale__bg" aria-hidden="true"></div>
+      <div class="scene__inner scene__inner--center">
+        <p class="act-label reveal">Finale</p>
+        <h2 class="finale__title kinetic">Encore?</h2>
+        <p class="finale__sub reveal">Commissions, collaborations, lectures — the next performance starts here.</p>
+
+        <div class="finale__actions reveal">
+          <button class="btn btn--solid btn--lg" id="encoreBtn">Call her back to the stage</button>
+        </div>
+
+        <div class="ticket reveal">
+          <div class="ticket__main">
+            <span class="ticket__label">Admit One</span>
+            <span class="ticket__name">LINA YI — Live in Your Inbox</span>
+            <a class="ticket__mail" href="mailto:13146148092@163.com">13146148092@163.com</a>
+          </div>
+          <div class="ticket__stub">
+            <a href="tel:+8613146148092">+86 131 4614 8092</a>
+            <a href="https://vimeo.com/showcase/11994916?video=1140258916" target="_blank" rel="noopener">Vimeo Showcase ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Encore reveal overlay ===== -->
+    <div class="encore" id="encoreOverlay" aria-hidden="true">
+      <div class="encore__backdrop" id="encoreBackdrop"></div>
+      <figure class="encore__figure">
+        <div class="encore__card">
+          <span class="encore__label">The Encore</span>
+          <h3 class="encore__name">LINA YI</h3>
+          <p class="encore__tag">She heard you — say hello.</p>
+          <div class="encore__links">
+            <a class="btn btn--solid" href="mailto:13146148092@163.com">13146148092@163.com</a>
+            <a class="btn btn--ghost" href="tel:+8613146148092">+86 131 4614 8092</a>
+            <a class="btn btn--ghost" href="https://vimeo.com/showcase/11994916?video=1140258916" target="_blank" rel="noopener">Vimeo Showcase ↗</a>
+          </div>
+        </div>
+        <figcaption class="encore__caption">LINA returns — one more song, one new connection.</figcaption>
+      </figure>
+      <button class="encore__close" id="encoreClose" aria-label="Close">×</button>
+    </div>
+
+    <footer class="footer">
+      <span>© 2026 Lina Yi</span>
+      <span>An immersive sonic performance — built with Web Audio</span>
+    </footer>
+  </main>
+
+  <!-- ===== Sticky Player ===== -->
+  <div class="player" id="player" aria-hidden="true">
+    <canvas id="vizCanvas" class="player__viz"></canvas>
+    <div class="player__bar">
+      <button class="player__btn" id="prevBtn" aria-label="Previous">⏮</button>
+      <button class="player__btn player__btn--play" id="playBtn" aria-label="Play / Pause">▶</button>
+      <button class="player__btn" id="nextBtn" aria-label="Next">⏭</button>
+
+      <div class="player__meta">
+        <span class="player__title" id="playerTitle">—</span>
+        <span class="player__cat" id="playerCat">—</span>
+      </div>
+
+      <div class="player__progress" id="progressWrap">
+        <div class="player__progress-fill" id="progressFill"></div>
+      </div>
+
+      <span class="player__time" id="timeLabel">0:00</span>
+
+      <button class="player__btn" id="muteBtn" aria-label="Mute">🔊</button>
+      <input type="range" class="player__volume" id="volumeSlider" min="0" max="100" value="80" aria-label="Volume" />
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
